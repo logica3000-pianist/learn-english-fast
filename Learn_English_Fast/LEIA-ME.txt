@@ -1,0 +1,25 @@
+LEARN ENGLISH FAST — CÓDIGO-FONTE COMPLETO
+
+Site: https://learn-english-fast-rodrigo.logica3000.chatgpt.site
+Versão: 9, publicada em 06/10/2026 e conferida em 13/10/2026.
+
+COMO ABRIR
+1. Extraia o ZIP mantendo a estrutura das pastas.
+2. Abra index.html em um navegador moderno.
+3. Para hospedar em outro serviço, publique index.html e a pasta assets juntos.
+
+ARQUIVOS
+index.html — conteúdo e estrutura integral da página.
+assets/site.css — estilos e regras responsivas integrais.
+assets/site.js — todas as interações do site.
+assets/ — fotos, imagens e música ambiente locais.
+
+Não é necessário instalar bibliotecas nem compilar o código.
+Os arquivos HTML, CSS, JS e recursos locais são cópias exatas da versão identificada.
+
+CONEXÃO COM A INTERNET
+Os vídeos e suas miniaturas são fornecidos pelo YouTube. Algumas capas de livros
+são carregadas da Cambridge Bookshop. Esses recursos, os links das redes sociais
+e o contato via WhatsApp dependem de conexão com a internet.
+
+A exportação não modifica o site publicado.
