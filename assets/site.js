@@ -18,16 +18,15 @@
       note: 'Um exemplo do repertório que você pode construir.'
     },
     business: {
-      goal: 'Business English', eyebrow: 'BUSINESS ENGLISH / CLAREZA QUE FAZ DIFERENÇA',
-      title: ['Sua competência merece', 'ser bem comunicada.'],
-      description: 'Inglês aplicado a reuniões, apresentações, entrevistas e negociações. A experiência com profissionais do mercado financeiro aproxima a prática da sua rotina.',
-      features: ['Comunicação em situações do seu trabalho', 'Vocabulário de negócios e finanças', 'Clareza para apresentar e sustentar suas ideias'],
-      cta: 'Quero inglês para minha carreira',
-      label: 'NA PRÓXIMA REUNIÃO', basic: "I don't agree.", divider: 'Discorde e mantenha a conversa aberta',
-      before: "I see your point. However, I'd like to ", highlight: 'offer a different perspective.', after: '',
-      translation: 'Entendo seu ponto. No entanto, gostaria de oferecer uma perspectiva diferente.',
-      context: 'Quando usar: para discordar com respeito em uma discussão profissional, sem perder a firmeza.',
-      note: 'Linguagem que conecta precisão e intenção.'
+      goal: 'Business English', eyebrow: 'Business English & Finanças',
+      title: ['Da análise à recomendação.'],
+      description: 'Treine como explicar o que mudou nos números, responder a perguntas sobre sua análise e propor o próximo passo com clareza.',
+      features: ['Apresentações de resultados e discussões de risco', 'Reuniões, negociações e entrevistas em inglês', 'Vocabulário de negócios e finanças aplicado ao seu trabalho'],
+      cta: 'Conversar sobre Business English',
+      label: 'Em uma reunião de resultados', basic: 'Margins are down.', divider: 'Explique a causa e indique o próximo passo',
+      before: 'Higher input costs put pressure on margins. ', highlight: 'I’d review our pricing assumptions before the next forecast.', after: '',
+      translation: 'O aumento nos custos dos insumos pressionou as margens. Eu revisaria nossas premissas de preços antes da próxima projeção.',
+      context: 'Use uma estrutura assim para conectar o dado observado, a causa e a sua recomendação.'
     },
     ielts: {
       goal: 'IELTS', eyebrow: 'IELTS / PREPARAÇÃO COM DIREÇÃO',
@@ -55,8 +54,8 @@
     },
     cambridge: {
       goal: 'Cambridge', eyebrow: 'CAMBRIDGE / PRECISÃO E NATURALIDADE',
-      title: ['Conhecimento de quem', 'também examina.'],
-      description: 'Preparação para FCE, CAE e CPE com Rodrigo, examinador oficial Cambridge. Um trabalho individual para desenvolver linguagem e comunicação com consistência.',
+      title: ['Preparação com experiência', 'de examinador.'],
+      description: 'Preparação para FCE, CAE e CPE com Rodrigo, ex-examinador Cambridge. Um trabalho individual para desenvolver linguagem e comunicação com consistência.',
       features: ['B2 First, C1 Advanced e C2 Proficiency', 'Repertório gramatical aplicado à comunicação', 'Atenção à clareza e à naturalidade das respostas'],
       cta: 'Conversar sobre meu exame Cambridge',
       label: 'ESTRUTURA COM INTENÇÃO', basic: 'I had never felt so confident.', divider: 'Uma inversão para dar ênfase',
@@ -111,7 +110,7 @@
     });
     $('program-panel').setAttribute('aria-labelledby', 'tab-' + key);
     $('program-eyebrow').textContent = data.eyebrow;
-    $('program-title').replaceChildren(document.createTextNode(data.title[0]), document.createElement('br'), document.createTextNode(data.title[1]));
+    $('program-title').textContent = data.title.join(' ');
     $('program-description').textContent = data.description;
     const features = data.features.map(text => {
       const li = document.createElement('li'); li.textContent = text; return li;
@@ -126,7 +125,8 @@
     $('phrase-elevated').replaceChildren(document.createTextNode('“' + data.before), emphasis, document.createTextNode(data.after + '”'));
     $('phrase-translation').textContent = '“' + data.translation + '”';
     $('phrase-context').textContent = data.context;
-    $('phrase-note').textContent = data.note;
+    $('phrase-note').textContent = data.note || '';
+    $('phrase-note').hidden = !data.note;
     resetPhrase();
     goal.value = data.goal;
     updateContact();
@@ -355,6 +355,7 @@
       entries.forEach(entry => contactVisibility.set(entry.target, entry.isIntersecting));
       document.querySelector('.floating-contact').classList.toggle('is-hidden', Array.from(contactVisibility.values()).some(Boolean));
     }, { threshold: 0.05 });
+    contactObserver.observe($('inicio'));
     contactObserver.observe($('contato'));
     contactObserver.observe(document.querySelector('.footer'));
   }
